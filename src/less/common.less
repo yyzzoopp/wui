@@ -1,0 +1,42 @@
+//==公共样式
+//
+//------------------------------
+
+.clearfix{
+	.clearfix();
+}
+
+.pull-left{
+	float: left;
+}
+
+.pull-right{
+	float: right;
+}
+
+//width
+.make-width();
+
+//padding, margin
+.make-box(padding);
+.make-box(padding-top);
+.make-box(padding-right);
+.make-box(padding-bottom);
+.make-box(padding-left);
+.make-box(margin);
+.make-box(margin-top);
+.make-box(margin-right);
+.make-box(margin-bottom);
+.make-box(margin-left);
+
+.container{
+	margin-left: auto;
+	margin-right: auto;
+	width: @container;
+	&:extend(.clearfix all);
+}
+
+.container-fluid{
+	width: 100%;
+	&:extend(.clearfix all);
+}
