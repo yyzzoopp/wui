@@ -7,11 +7,9 @@ var del = require('del');
 var run = require('run-sequence');
 var $ = require('gulp-load-plugins')({lazy: true});
 
-gulp.task('test-less', function(){
-    return gulp.src(['./src/less/wui.less', './src/less/icon/font-icon-ie7.less'])
-        .pipe($.less())
-        .pipe(gulp.dest('./src/css'));
-});
+/**
+ * 生产环境打包
+ */
 
 gulp.task('del', function () {
     log('---------- del Start ----------');
@@ -20,17 +18,9 @@ gulp.task('del', function () {
     ]);
 });
 
-gulp.task('less', function(){
-    return gulp.src(['./src/less/mwui.less','./src/less/mwui-ie7.less'])
-        .pipe($.sourcemaps.init())
-        .pipe($.less())
-        .pipe($.sourcemaps.write())
-        .pipe(gulp.dest('./src/css'));
-});
-
 gulp.task('cssmin', function () {
     log('---------- Css Optimizer Start ----------');
-    return gulp.src(['./src/less/mwui.less','./src/less/mwui-ie7.less'])
+    return gulp.src('./src/less/wui.less')
         .pipe($.sourcemaps.init())
         .pipe($.less())
         .pipe($.autoprefixer({
@@ -50,12 +40,25 @@ gulp.task('copy', function () {
 });
 
 gulp.task('dist', function (callback) {
-    run(
-        'del',
+    run('del', callback);
+    setTimeout(function(){
+        run(
         'cssmin',
-        'copy',
-        callback
+        'copy'
     )
+    }, 2000);
+});
+
+/**
+ * 开发环境
+ */
+
+gulp.task('less', function(){
+    return gulp.src(['./src/less/mwui.less'])
+        .pipe($.sourcemaps.init())
+        .pipe($.less())
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest('./src/css'));
 });
 
 gulp.task('watch',['server'], function(){
@@ -77,6 +80,12 @@ gulp.task('server-dev', function () {
         },
         port: 8001
     });
+});
+
+gulp.task('test-less', function(){
+    return gulp.src(['./src/less/wui.less'])
+        .pipe($.less())
+        .pipe(gulp.dest('./src/css'));
 });
 
 //print info
