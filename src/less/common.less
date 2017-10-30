@@ -52,3 +52,20 @@
 	width: 100%;
 	&:extend(.clearfix all);
 }
+
+.custom-scroll-drag{
+	position: absolute;
+	top: 0;
+	right: 2px;
+	width: 8px;
+	height: 80px;
+	background-color: #555;
+	.border-radius(8px);
+	.opacity(0.3);
+	.transition(opacity);
+	z-index: 1001;
+}
+
+.custom-scroll-drag:hover{
+	.opacity(0.5);
+}

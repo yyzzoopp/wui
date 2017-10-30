@@ -48,7 +48,8 @@
 @font-family-base:             @font-family-sans-serif;
 
 @font-size-base:               13px;
-@font-size-large:              ceil((@font-size-base * 1.25)); // ~18px
+@font-size-large:              ceil((@font-size-base * 1.25)); // ~17px
+@font-size-middle:             ceil((@font-size-base * 1.15)); // ~15px
 @font-size-small:              ceil((@font-size-base * 0.85)); // ~12px
 
 @font-size-h1:                 floor((@font-size-base * 2.6)); // ~36px
@@ -185,3 +186,17 @@
 @table-cell-padding:             18px;
 @table-cell-hover:               @color-gray-lighter;
 @table-cell-strip:               @color-background;
+
+//== modal
+//弹窗
+//
+@alert-lineheight:               16px;
+@alert-padding:                  8px 48px 8px 16px;
+@alert-desc-wrap-padding:        16px;
+@alert-desc-wrap-lineght:        1.5;
+@alert-desc-lineheight:          21px;
+@alert-icon-wrap-padding:        8px 48px 8px 38px;
+@alert-desc-icon-wrap-padding:   16px 16px 16px 69px;
+
+@z-index-mask:                   10001;
+@z-index-loading:                10002;

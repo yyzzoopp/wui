@@ -6,7 +6,7 @@
 	.width(@index) when (@index =< @width) {
         @i: @index * 5;
         .width-@{i} {
-            width: @index * 5px;
+            width: @index * 5px !important;
         }
         .width(@index+1);
     }

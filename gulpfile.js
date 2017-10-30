@@ -61,7 +61,7 @@ gulp.task('less', function(){
         .pipe(gulp.dest('./src/css'));
 });
 
-gulp.task('watch',['server'], function(){
+gulp.task('watch',['server-dev'], function(){
     gulp.watch('./src/less/**/*.less',['less']);
 });
 
