@@ -118,6 +118,16 @@
 .message-type(warning, @color-warning);
 .message-type(danger, @color-danger);
 
+.w-message-close {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -11px;
+    cursor: pointer;
+    color: @color-border;
+    font-size: @font-size-large;
+}
+
 .w-mask-loading {
     position: absolute;
     top: 0;
@@ -140,5 +150,107 @@
     .w-loading-txt {
         display: block;
         padding-top: 10px;
+    }
+}
+
+.w-modal-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: @color-black;
+    width: 100%;
+    height: 100%;
+    .opacity(0.6);
+    z-index: @z-index-mask;
+}
+
+.w-modal-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @z-index-mask;
+    outline: 0;
+
+    .w-modal {
+        width: auto;
+        margin: 0 auto;
+        position: relative;
+        outline: 0;
+        top: @modal-top-default;
+    }
+
+    .w-modal-content {
+        position: relative;
+        background-color: @color-white;
+        border: 0;
+        .border-radius(6px);
+    }
+
+    .w-modal-close {
+        font-size: @font-size-middle;
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .w-modal-header {
+        border-bottom: 1px solid @color-border;
+        padding: 14px 16px;
+        line-height: 1;
+    }
+
+    .w-modal-header-inner,
+    .w-modal-header p {
+        display: inline-block;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        font-size: @font-size-middle;
+        color: @color-title;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .w-modal-body {
+        padding: 16px;
+        font-size: @font-size-base;
+        line-height: 1.5;
+    }
+
+    .w-modal-footer {
+        border-top: 1px solid @color-border;
+        padding: 12px 18px;
+        text-align: right;
+    }
+
+    .w-modal-confirm {
+        .w-modal-header {
+            border-bottom: 0;
+        }
+
+        .w-modal-footer {
+            border-top: 0;
+        }
+    }
+
+    .w-modal-status {
+        position: absolute;
+        top: 50%;
+        margin-top: -24px;
+        font-size: 24px!important;
+    }
+
+    .w-modal-message {
+        padding-left: 36px;
+        padding-right: 12px;
     }
 }

@@ -942,7 +942,7 @@ textarea {
 }
 .a-gray-lighter:hover,
 .a-gray-lighter:focus {
-  color: #ffffff;
+  color: #d5d5d5;
 }
 .a-primary {
   color: #2D8CF0;
@@ -977,7 +977,7 @@ textarea {
 }
 .a-primary-lighter:hover,
 .a-primary-lighter:focus {
-  color: #a4cdf9;
+  color: #4599f2;
 }
 .a-success {
   color: #19BE6B;
@@ -3782,6 +3782,15 @@ textarea.w-form-control {
 .w-message-danger .w-message-icon {
   background-color: #ED3F14;
 }
+.w-message-close {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -11px;
+  cursor: pointer;
+  color: #DDDEE1;
+  font-size: 17px;
+}
 .w-mask-loading {
   position: absolute;
   top: 0;
@@ -3805,4 +3814,94 @@ textarea.w-form-control {
 .w-loading .w-loading-txt {
   display: block;
   padding-top: 10px;
+}
+.w-modal-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  z-index: 10001;
+}
+.w-modal-wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10001;
+  outline: 0;
+}
+.w-modal-wrap .w-modal {
+  width: auto;
+  margin: 0 auto;
+  position: relative;
+  outline: 0;
+  top: 100px;
+}
+.w-modal-wrap .w-modal-content {
+  position: relative;
+  background-color: #FFF;
+  border: 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.w-modal-wrap .w-modal-close {
+  font-size: 15px;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.w-modal-wrap .w-modal-header {
+  border-bottom: 1px solid #DDDEE1;
+  padding: 14px 16px;
+  line-height: 1;
+}
+.w-modal-wrap .w-modal-header-inner,
+.w-modal-wrap .w-modal-header p {
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
+  color: #1C2438;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.w-modal-wrap .w-modal-body {
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.w-modal-wrap .w-modal-footer {
+  border-top: 1px solid #DDDEE1;
+  padding: 12px 18px;
+  text-align: right;
+}
+.w-modal-wrap .w-modal-confirm .w-modal-header {
+  border-bottom: 0;
+}
+.w-modal-wrap .w-modal-confirm .w-modal-footer {
+  border-top: 0;
+}
+.w-modal-wrap .w-modal-status {
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
+  font-size: 24px!important;
+}
+.w-modal-wrap .w-modal-message {
+  padding-left: 36px;
+  padding-right: 12px;
 }
