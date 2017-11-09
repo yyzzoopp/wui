@@ -5,47 +5,48 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var del = require('del');
 var run = require('run-sequence');
-var $ = require('gulp-load-plugins')({lazy: true});
+var $ = require('gulp-load-plugins')({ lazy: true });
 
 /**
  * 生产环境打包
  */
 
-gulp.task('del', function () {
+gulp.task('del', function() {
     log('---------- del Start ----------');
     del([
         './dist'
     ]);
 });
 
-gulp.task('cssmin', function () {
+gulp.task('cssmin', function() {
     log('---------- Css Optimizer Start ----------');
     return gulp.src('./src/less/wui.less')
-        .pipe($.sourcemaps.init())
         .pipe($.less())
         .pipe($.autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe($.cssnano())
-        .pipe($.rename({suffix: '.min'}))
-        .pipe($.sourcemaps.write())
+        .pipe($.cssnano({
+            discardComments: { removeAll: true },
+            safe: true
+        }))
+        .pipe($.rename({ suffix: '.min' }))
         .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', function() {
     log('---------- copy start ----------');
     return gulp.src('./src/font/*')
         .pipe(gulp.dest('./dist/font'));
 });
 
-gulp.task('dist', function (callback) {
+gulp.task('dist', function(callback) {
     run('del', callback);
-    setTimeout(function(){
+    setTimeout(function() {
         run(
-        'cssmin',
-        'copy'
-    )
+            'cssmin',
+            'copy'
+        )
     }, 2000);
 });
 
@@ -53,7 +54,7 @@ gulp.task('dist', function (callback) {
  * 开发环境
  */
 
-gulp.task('less', function(){
+gulp.task('less', function() {
     return gulp.src(['./src/less/mwui.less'])
         .pipe($.sourcemaps.init())
         .pipe($.less())
@@ -61,11 +62,11 @@ gulp.task('less', function(){
         .pipe(gulp.dest('./src/css'));
 });
 
-gulp.task('watch',['server-dev'], function(){
-    gulp.watch('./src/less/**/*.less',['less']);
+gulp.task('watch', ['server-dev'], function() {
+    gulp.watch('./src/less/**/*.less', ['less']);
 });
 
-gulp.task('dev', function(callback){
+gulp.task('dev', function(callback) {
     run(
         'less',
         'watch',
@@ -73,7 +74,7 @@ gulp.task('dev', function(callback){
     );
 });
 
-gulp.task('server-dev', function () {
+gulp.task('server-dev', function() {
     browserSync.init({
         server: {
             baseDir: "./src"
@@ -82,7 +83,7 @@ gulp.task('server-dev', function () {
     });
 });
 
-gulp.task('test-less', function(){
+gulp.task('test-less', function() {
     return gulp.src(['./src/less/wui.less'])
         .pipe($.less())
         .pipe(gulp.dest('./src/css'));
