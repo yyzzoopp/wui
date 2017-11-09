@@ -153,6 +153,16 @@
     }
 }
 
+.w-modal-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .opacity(0);
+    z-index: @z-index-mask;
+}
+
 .w-modal-mask {
     position: fixed;
     top: 0;
@@ -163,16 +173,6 @@
     width: 100%;
     height: 100%;
     .opacity(0.6);
-    z-index: @z-index-mask;
-}
-
-.w-modal-item{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    .opacity(0);
     z-index: @z-index-mask;
 }
 

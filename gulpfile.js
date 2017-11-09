@@ -27,7 +27,6 @@ gulp.task('cssmin', function() {
             cascade: false
         }))
         .pipe($.cssnano({
-            discardComments: { removeAll: true },
             safe: true
         }))
         .pipe($.rename({ suffix: '.min' }))
