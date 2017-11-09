@@ -4,8 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "dist": "gulp dist",
-    "start": "gulp dev"
+    "start": "gulp dist"
   },
   "repository": {
     "type": "git",
