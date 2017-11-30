@@ -54,11 +54,11 @@ gulp.task('dist', function(callback) {
  */
 
 gulp.task('less', function() {
-    return gulp.src(['./src/less/mwui.less'])
+    return gulp.src(['./src/less/**/*.less'])
         .pipe($.sourcemaps.init())
         .pipe($.less())
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest('./src/css'));
+        .pipe(gulp.dest('./src/css/wui.css'));
 });
 
 gulp.task('watch', ['server-dev'], function() {

@@ -173,26 +173,26 @@
         background-color: @color-white;
     }
 
-    .w-page-disabled {
-        cursor: @cursor-disabled;
-    }
-
     .w-page-next a,
     .w-page-prev a {
         color: @color-gray-light;
         font-size: @font-size-base;
     }
 
+    .w-page-disabled {
+        cursor: @cursor-disabled;
+    }
+
     .w-page-disabled:hover {
-        border-color: #dddee1;
+        border-color: @disabled-page-color;
     }
 
     .w-page-disabled:hover a {
-        color: @color-border;
+        color: @disabled-page-color;
     }
 
     .w-page-disabled a {
-        color: @color-gray-light;
+        color: @disabled-page-color;
     }
 
     .w-page-options {
